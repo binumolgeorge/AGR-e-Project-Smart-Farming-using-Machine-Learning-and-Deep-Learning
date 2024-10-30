@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Agr-e</title>
+    <link rel="stylesheet" href="styles/styles1.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/register.css">
+    <script>
+        function validateForm(event) {
+            var phone = document.getElementById("phone").value;
+            var phonePattern = /^[0-9]{10}$/;
+
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                event.preventDefault();
+                return false;
+            }
+
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var idProofSelect = document.getElementById('id-proof');
+            var otherIdContainer = document.getElementById('other-id-container');
+
+            idProofSelect.addEventListener('change', function() {
+                if (this.value === 'other') {
+                    otherIdContainer.style.display = 'block';
+                } else {
+                    otherIdContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="login-container">
+            <h2>Create Your Profile</h2>
+            <form action="register.php" method="POST" onsubmit="validateForm(event)">
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" max="2004-12-31" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="password">Create New Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="input-group">
+                    <label for="id-proof">ID Proof:</label>
+                    <select id="id-proof" name="id-proof" required>
+                        <option value="" disabled selected>Select ID Proof</option>
+                        <option value="aadhar">Aadhar Card</option>
+                        <option value="driving-license">Driving License</option>
+                        <option value="voter-id">Voter's ID</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="id-number">ID Number:</label>
+                    <input type="text" id="id-number" name="id-number" required>
+                </div>
+                <div class="actions">
+                    <button type="submit">Register</button>
+                </div>
+                <script>
+                    // Function to validate ID number based on selected ID proof
+                    document.getElementById('id-number').addEventListener('input', function() {
+                        const idProof = document.getElementById('id-proof').value;
+                        const idNumber = this.value;
+                
+                        if (idProof === 'aadhar' && !/^[A-Za-z0-9]{12}$/.test(idNumber)) {
+                            this.setCustomValidity('Aadhar card number must be exactly 12 characters, containing both letters and numbers.');
+                        } else if (idProof === 'driving-license' && !/^[A-Za-z0-9]{15}$/.test(idNumber)) {
+                            this.setCustomValidity('Driving license number must be exactly 15 characters, containing both letters and numbers.');
+                        } else if (idProof === 'voter-id' && !/^[A-Za-z0-9]{10}$/.test(idNumber)) {
+                            this.setCustomValidity('Voter\'s ID number must be exactly 10 characters, containing both letters and numbers.');
+                        } else {
+                            this.setCustomValidity(''); // Clear any previous error messages
+                        }
+                    });
+                </script>
+                </form>
+                </div>
+                </div>
+                </body>
+                </html>

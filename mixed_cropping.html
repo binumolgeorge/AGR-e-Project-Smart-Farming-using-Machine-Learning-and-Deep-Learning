@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Insurance & Subsidies</title>
+    <link rel="stylesheet" href="styles/styles6.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<style>
+    * Header Styling */
+header {
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(38, 61, 38, 0.7); /* Dark green with transparency */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.navbar .logo img {
+    height: 200px;
+    margin-left: 120px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(38, 61, 38, 0.7);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(38, 61, 38, 0.7);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(38, 61, 38, 0.7);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center; /* Aligns the icon and text vertically */
+}
+
+.profile-icon {
+    width: 20px; /* Adjust the size of the icon as needed */
+    height: 20px;
+    margin-right: 8px; /* Space between icon and text */
+    vertical-align: middle; /* Ensures vertical alignment */
+}
+
+    footer {
+    background-color: rgba(38, 61, 38, 0.7);
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #014601;
+    padding-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul li {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; /* Align the icon and text vertically */
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #cccccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #034b03;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
+</style>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="home.html" class="logo" aria-label="Agr-e Logo">
+                <img src="images/logo.png" alt="Agr-e Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html" aria-current="page">Home</a></li>
+                    <li class="dropdown">
+                        <a>Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="soil_testing.html">Soil Testing</a></li>
+                            <li><a href="nutrient_deficiency.html">Nutrient Deficiency</a></li>
+                            <li><a href="mixed_cropping.html">Mixed Cropping</a></li>
+                            <li><a href="insurances.html">Insurances and Subsidies</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-wrapper">
+            <!-- Description Container -->
+            <div class="container description-container">
+                <h2>What is Mixed Cropping?</h2>
+                <p style="text-align:justify;">Mixed cropping is an agricultural practice where two or more crops are grown together on the same piece of land. This method aims to maximize the utilization of resources such as sunlight, water, and nutrients, leading to increased crop yields and reduced risk of crop failure.</p>
+                <p style="text-align:justify;">By growing compatible crops together, farmers can improve soil fertility, control pests and diseases naturally, and promote biodiversity. Mixed cropping also helps in efficient land use and can provide a variety of produce, contributing to food security and economic stability.</p>
+                <p style="text-align:justify;">Our smart farming tool assists farmers in identifying the best crop combinations based on scientific data and local farming conditions, ensuring sustainable and profitable agriculture practices.</p>
+            </div>
+
+
+
+            <!-- Form Container -->
+            <div class="container form-container">
+                <h2>Find Compatible Crops</h2>
+                <!-- Form submission handled by JavaScript -->
+                <form id="crop-form">
+                    <div class="form-group">
+                        <div class="input-row">
+                            <label for="crop">Enter the name of the crop:</label>
+                            <select id="crop" name="crop" required>
+                                <option value="" disabled selected>Select your crop</option>
+                                <option value="banana">Banana</option>
+                                <option value="rice">Rice</option>
+                                <option value="coconut">Coconut</option>
+                                <option value="coffee">Coffee</option>
+                            </select>
+                        </div>
+                        <div class="input-row">
+                            <label for="shade">Shade Requirement:</label>
+                            <select id="shade" name="shade" required>
+                                <option value="" disabled selected>Select Shade Requirement</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+
+                <!-- Display Result -->
+                <div id="result"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Agr-e</h2>
+                <p style="text-align:justify;">Agr-e is dedicated to integrating advanced technology with traditional farming practices, ensuring a sustainable and profitable future for farmers.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Information</h2>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact" id="contact">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><img src="images/favicon1.ico" alt="Location Icon" class="contact-icon"> CHRIST (Deemed to be University) Bangalore Yeshwanthpur Campus, Nalagadderanahalli, Peenya, Bengaluru, Karnataka 560073</li>
+                    <li><img src="images/favicon2.ico" alt="Phone Icon" class="contact-icon"> +91 9188465623</li>
+                    <li><img src="images/favicon3.ico" alt="Email Icon" class="contact-icon"> <a href="mailto:agre@gmail.com">agre@christuniversity.in</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agr-e. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("crop-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting traditionally
+        
+            var crop = document.getElementById("crop").value;
+            var shade = document.getElementById("shade").value;
+            var complementaryCrop = "";
+            var careMethods = {};
+    
+            // Object to store care methods for each crop
+            var cropCareMethods = {
+                "Banana": "Requires regular watering and well-drained soil. Needs mulching and regular fertilization.",
+                "Cardamom": "Grows well in shaded areas, requires regular watering and pest control.",
+                "Papaya": "Needs full sun and well-drained soil, avoid overwatering, and prune regularly.",
+                "Pepper": "Requires moist soil and partial shade, support climbing is needed.",
+                "Cocoa": "Needs moderate shade and frequent watering. Keep soil moist but not waterlogged.",
+                "Coconut": "Needs full sun, regular irrigation, and fertile soil for growth.",
+                "Pineapple": "Thrives in warm climates, requires minimal water, and well-drained soil.",
+                "Sweet potato": "Needs well-drained soil and consistent watering during dry spells.",
+                "Ginger": "Requires shade and moist soil, avoid waterlogging, and regular fertilization.",
+                "Legumes": "Grow well with little water, need full sun and nitrogen-rich soil.",
+                "Mustard": "Requires full sun and well-drained soil, prefers cool temperatures.",
+                "Wheat": "Needs full sun and well-drained soil, requires moderate irrigation.",
+                "Sugarcane": "Requires plenty of water and warm temperatures, thrives in moist soil."
+            };
+    
+            // Determine complementary crops and their care methods based on crop and shade requirement
+            if (crop === "coffee") {
+                if (shade === "high") {
+                    complementaryCrop = "Banana, Cardamom, Papaya";
+                    careMethods = {
+                        "Banana": cropCareMethods["Banana"],
+                        "Cardamom": cropCareMethods["Cardamom"],
+                        "Papaya": cropCareMethods["Papaya"]
+                    };
+                } else if (shade === "medium") {
+                    complementaryCrop = "Pepper, Cocoa";
+                    careMethods = {
+                        "Pepper": cropCareMethods["Pepper"],
+                        "Cocoa": cropCareMethods["Cocoa"]
+                    };
+                } else if (shade === "low") {
+                    complementaryCrop = "Coconut, Pineapple";
+                    careMethods = {
+                        "Coconut": cropCareMethods["Coconut"],
+                        "Pineapple": cropCareMethods["Pineapple"]
+                    };
+                }
+            } else if (crop === "banana") {
+                if (shade === "high") {
+                    complementaryCrop = "Coffee, Papaya";
+                    careMethods = {
+                        "Coffee": cropCareMethods["Cocoa"],  // Assuming similar care methods for Coffee and Cocoa
+                        "Papaya": cropCareMethods["Papaya"]
+                    };
+                } else if (shade === "medium") {
+                    complementaryCrop = "Sweet potato, Ginger";
+                    careMethods = {
+                        "Sweet potato": cropCareMethods["Sweet potato"],
+                        "Ginger": cropCareMethods["Ginger"]
+                    };
+                } else if (shade === "low") {
+                    complementaryCrop = "Coconut, Pineapple";
+                    careMethods = {
+                        "Coconut": cropCareMethods["Coconut"],
+                        "Pineapple": cropCareMethods["Pineapple"]
+                    };
+                }
+            } else if (crop === "rice") {
+                if (shade === "low") {
+                    complementaryCrop = "Legumes, Mustard, Wheat";
+                    careMethods = {
+                        "Legumes": cropCareMethods["Legumes"],
+                        "Mustard": cropCareMethods["Mustard"],
+                        "Wheat": cropCareMethods["Wheat"]
+                    };
+                } else if (shade === "medium") {
+                    complementaryCrop = "Sugarcane";
+                    careMethods = {
+                        "Sugarcane": cropCareMethods["Sugarcane"]
+                    };
+                } else if (shade === "high") {
+                    complementaryCrop = "Complementary crops not possible.";
+                    careMethods = {};
+                }
+            } else if (crop === "coconut") {
+                if (shade === "low") {
+                    complementaryCrop = "Coffee, Pineapple, Banana";
+                    careMethods = {
+                        "Coffee": cropCareMethods["Cocoa"],  // Similar care for coffee
+                        "Pineapple": cropCareMethods["Pineapple"],
+                        "Banana": cropCareMethods["Banana"]
+                    };
+                } else if (shade === "medium") {
+                    complementaryCrop = "Pepper";
+                    careMethods = {
+                        "Pepper": cropCareMethods["Pepper"]
+                    };
+                } else if (shade === "high") {
+                    complementaryCrop = "Ginger, Turmeric";
+                    careMethods = {
+                        "Ginger": cropCareMethods["Ginger"],
+                        "Turmeric": "Requires partial shade, consistent watering, and well-drained soil."
+                    };
+                }
+            }
+    
+            // Prepare form data for submission to PHP
+            var formData = new FormData();
+            formData.append('crop', crop);
+            formData.append('shade', shade);
+            formData.append('complementary_crop', complementaryCrop);
+            formData.append('care_methods', JSON.stringify(careMethods));  // Convert care methods to string for sending
+    
+            // Send data to PHP backend using fetch
+            fetch('mixed_cropping.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Log server response for debugging
+    
+                // Redirect to the results page with the crop name, shade, complementary crop, and care methods
+                window.location.href = `complementary_crops.html?crop_name=${encodeURIComponent(crop)}&shade=${encodeURIComponent(shade)}&complementary_crop=${encodeURIComponent(complementaryCrop)}&care_methods=${encodeURIComponent(JSON.stringify(careMethods))}`;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+    
+    
+</body>
+</html>

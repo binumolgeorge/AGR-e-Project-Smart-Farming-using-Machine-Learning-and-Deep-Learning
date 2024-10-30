@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Agr-e</title>
+    <link rel="stylesheet" href="styles/style3.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo" aria-label="Agr-e Logo">
+                <img src="images/logo.png" alt="Agr-e Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1 style="text-align:center;">About Us</h1>
+    <!-- Slideshow container -->
+    <div class="image-slider">
+        <div class="slides">
+            <img src="images/coffee1.jpg" alt="Image 1">
+            <img src="images/rice1.jpg" alt="Image 2">
+            <img src="images/coconut1.jpg" alt="Image 3">
+            <img src="images/banana1.jpg" alt="Image 4">
+            <img src="images/coffee2.jpg" alt="Image 5">
+            <img src="images/rice4.jpg" alt="Image 6">
+        </div>
+
+        <!-- Only one set of navigation buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <main>
+        <main>
+            <section class="about-us">              
+                <!-- New feature box for About Us content -->
+                    <p style="text-align:justify;">
+                        Welcome to Agr-e, where innovation meets agriculture! Our mission is to empower farmers with cutting-edge technology, ensuring sustainable and efficient farming practices. We believe that by integrating modern technology with traditional farming, we can create a more prosperous and resilient agricultural community.
+                    </p>
+        
+                <div class="feature-box">
+                    <h2>Our Vision</h2>
+                    <p style="text-align:justify;">To lead the agricultural revolution by providing farmers with intelligent tools and insights that optimize productivity, reduce environmental impact, and foster sustainable farming practices. We envision a world where every farmer has access to the knowledge and resources needed to make informed decisions that benefit both their livelihood and the planet.</p>
+                </div>
+            
+                <div class="feature-box">
+                    <h2>Our Mission</h2>
+                    <p style="text-align:justify;">At Agr-e, our mission is to transform the agricultural landscape by delivering accessible, technology-driven solutions that address the critical needs of farmers. We are committed to:</p>
+                    <ul>
+                        <li style="text-align:justify;"><strong>Soil Nutrient Deficiency Detection:</strong> Providing precise soil analysis to help farmers understand the nutrient content of their soil and recommend the right fertilizers to enhance crop yields.</li>
+                        <li style="text-align:justify;"><strong>Plant Nutrient Deficiency Detection:</strong> Utilizing advanced image processing and machine learning techniques to identify nutrient deficiencies in plants, enabling timely intervention and preventing crop loss.</li>
+                        <li style="text-align:justify;"><strong>Insurances and Subsidies:</strong> Connecting farmers with the best insurance options and government subsidies tailored to their specific needs, ensuring financial security and support in challenging times.</li>
+                        <li style="text-align:justify;"><strong>Mixed Cropping Possibilities:</strong> Offering insights and recommendations on mixed cropping strategies that promote biodiversity, improve soil health, and maximize land use efficiency.</li>
+                    </ul>
+                    <p style="text-align:justify;">Our commitment to excellence, innovation, and sustainability drives us to continually enhance our services, ensuring that every farmer can thrive in an ever-changing agricultural environment. Join us in shaping the future of farming—sustainable, intelligent, and resilient.</p>
+                </div>
+            </section>
+        </main>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Agr-e</h2>
+                <p style="text-align:justify;">Agr-e is dedicated to integrating advanced technology with traditional farming practices, ensuring a sustainable and profitable future for farmers.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Information</h2>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact" id="contact">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><img src="images/favicon1.ico" alt="Location Icon" class="contact-icon"> CHRIST (Deemed to be University) Bangalore Yeshwanthpur Campus...</li>
+                    <li><img src="images/favicon2.ico" alt="Phone Icon" class="contact-icon"> +91 9188465623</li>
+                    <li><img src="images/favicon3.ico" alt="Email Icon" class="contact-icon"> <a href="mailto:agre@gmail.com">agre@christuniversity.in</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agr-e. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+    let slideIndex = 0;
+const slides = document.querySelector('.slides');
+const slideImages = document.querySelectorAll('.slides img');
+const slideCount = slideImages.length;
+const slideWidth = slideImages[0].offsetWidth; // Width of one slide including the gap
+const gap = 10; // Gap between images in pixels
+
+// Duplicate first and last slides for seamless looping
+function duplicateSlides() {
+    const firstSlide = slideImages[0];
+    const lastSlide = slideImages[slideCount - 1].cloneNode(true);
+    slides.appendChild(firstSlide.cloneNode(true));  // Append duplicate of first slide
+    slides.insertBefore(lastSlide, slides.firstChild); // Prepend duplicate of last slide
+}
+
+// Adjust the width of the slides container to fit all slides including duplicates
+function adjustSlideWidth() {
+    const totalWidth = (slideWidth + gap) * (slideCount + 2); // Including duplicates
+    slides.style.width = `${totalWidth}px`;
+}
+
+function showSlides() {
+    slideIndex++;
+    if (slideIndex >= slideCount + 1) {
+        slideIndex = 1;
+        slides.style.transition = 'none';  // Disable transition
+        slides.style.transform = 'translateX(0%)'; // Jump to start
+        setTimeout(() => {
+            slides.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+            showSlides();
+        }, 50); // Timeout must be short enough to enable transition back
+    } else {
+        const offset = -slideIndex * (slideWidth + gap); // Adjust for duplicated slides and gaps
+        slides.style.transform = `translateX(${offset}px)`;
+    }
+}
+
+function changeSlide(n) {
+    slideIndex += n;
+    if (slideIndex >= slideCount + 1) {
+        slideIndex = 1;
+        slides.style.transition = 'none';  // Disable transition
+        slides.style.transform = 'translateX(0%)'; // Jump to start
+        setTimeout(() => {
+            slides.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+            showSlides();
+        }, 50); // Timeout must be short enough to enable transition back
+    } else if (slideIndex < 0) {
+        slideIndex = slideCount - 1;
+        const offset = -slideIndex * (slideWidth + gap); // Adjust for duplicated slides and gaps
+        slides.style.transform = `translateX(${offset}px)`;
+    } else {
+        const offset = -slideIndex * (slideWidth + gap); // Adjust for duplicated slides and gaps
+        slides.style.transform = `translateX(${offset}px)`;
+    }
+}
+
+duplicateSlides();
+adjustSlideWidth();
+setInterval(showSlides, 3000); // Set interval to change slides
+
+</script>    
+</body>
+</html>

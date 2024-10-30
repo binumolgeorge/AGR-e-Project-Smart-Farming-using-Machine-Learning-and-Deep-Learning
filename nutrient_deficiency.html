@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrient Deficiency | Agr-e</title>
+    <link rel="stylesheet" href="styles/styles7.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="home.html" class="logo" aria-label="Agr-e Logo">
+                <img src="images/logo.png" alt="Agr-e Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html" aria-current="page">Home</a></li>
+                    <li class="dropdown">
+                        <a >Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="soil_testing.html">Soil Testing</a></li>
+                            <li><a href="nutrient_deficiency.html">Nutrient Deficiency</a></li>
+                            <li><a href="mixed_cropping.html">Mixed Cropping</a></li>
+                            <li><a href="insurances.html">Insurances and Subsidies</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<main>
+    <body>
+
+        <div class="container">
+            <h1>Nutrient Deficiency Testing</h1>
+            <p>Upload an image of the plant to detect nutrient deficiency.</p>
+            
+            <form action="plant_deficiency.php" method="post" enctype="multipart/form-data">
+                <label for="crop-name">Enter the name of the crop:</label>
+                    <select id="crop" name="crop" required>
+                        <option value="" disabled selected>Select your crop</option>
+                        <option value="banana">Banana</option>
+                        <option value="rice">Rice</option>
+                        <option value="coconut">Coconut</option>
+                        <option value="coffee">Coffee</option>
+                        <!-- Add more crop options as needed -->
+                    </select>
+    
+                <label for="plant-image">Choose an image:</label>
+                <input type="file" id="plant-image" name="plant-image" accept="image/*" required>
+                
+                <input type="submit" name="submit" value="Upload">
+            </form>
+        </div>
+    
+    </body>
+    </html>
+
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>About Agr-e</h2>
+            <p style="text-align:justify;">Agr-e is dedicated to integrating advanced technology with traditional farming practices, ensuring a sustainable and profitable future for farmers.</p>
+        </div>
+        <div class="footer-section links">
+            <h2>Information</h2>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="terms.html">Terms & Conditions</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact" id="contact">
+            <h2>Contact Us</h2>
+            <ul>
+                <li><img src="images/favicon1.ico" alt="Location Icon" class="contact-icon"> CHRIST (Deemed to be University) Bangalore Yeshwanthpur Campus, Nalagadderanahalli, Peenya, Bengaluru, Karnataka 560073</li>
+                <li><img src="images/favicon2.ico" alt="Phone Icon" class="contact-icon"> +91 9188465623</li>
+                <li><img src="images/favicon3.ico" alt="Email Icon" class="contact-icon"> <a href="mailto:agre@gmail.com">agre@christuniversity.in</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Agr-e. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

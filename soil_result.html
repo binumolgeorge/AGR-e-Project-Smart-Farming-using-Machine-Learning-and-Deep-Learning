@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Test Results</title>
+    <link rel="stylesheet" href="styles/styles13.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background: url('images/background2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+}
+
+/* Container for Prediction Results and Table */
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(38, 61, 38, 0.4); /* Semi-transparent green background */
+    border-radius: 10px;
+    color: rgb(254, 252, 252);
+    text-align: center;
+}
+/* Prediction Results Inner Box */
+.prediction-results-box {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    color: #fff; /* White text for contrast */
+    text-align: left; /* Align text to the left */
+}
+
+.prediction-results-box h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.prediction-results-box p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.prediction-results-box p span {
+    font-weight: bold;
+    color: #ffcc00; /* Highlight in yellow */
+}
+
+
+/* Prediction Results Section */
+.prediction-container {
+    margin-bottom: 30px;
+}
+
+.prediction-container h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.prediction-container p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.prediction-container p span {
+    font-weight: bold;
+    color: #ffcc00; /* Yellow color for emphasis */
+}
+
+/* Styling the Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgb(150, 170, 127);
+    color: black;
+}
+table h2{
+    color: #fff;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+th {
+    background-color: #325f32; /* Dark green */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light grey for alternate rows */
+}
+
+/* Hover effect for rows */
+tr:hover {
+    background-color: #beb5b5;
+}
+
+/* Purchase link styling */
+a {
+    color: #014601;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+header {
+    padding: 10px 0;
+    background: rgba(38, 61, 38, 0.7); /* Dark green with transparency */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.navbar .logo img {
+    height: 200px;
+    margin-left: 120px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(38, 61, 38, 0.7);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(38, 61, 38, 0.7);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(38, 61, 38, 0.7);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+footer {
+    background-color: rgba(38, 61, 38, 0.7);
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #014601;
+    padding-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul li {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; /* Align the icon and text vertically */
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #cccccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #034b03;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
+
+.phase3 .how-it-works,
+.phase3 .testimonials {
+    color: white; /* Change text color to white */
+}
+
+.phase3 .how-it-works h2, .phase3 .testimonials h2 {
+    color: white; /* Ensures the headings are also white */
+}
+
+.phase3 .how-it-works ol {
+    color: white; /* Ensures ordered list items are white */
+}
+
+.phase3 .testimonials .testimonial p, .phase3 .testimonials .testimonial h4 {
+    color: white; /* Ensures testimonials text and author names are white */
+}
+
+.hero, .service1, .service2, .service3 {
+    text-align: center;
+    padding: 30px 10px;
+    background-color: rgba(38, 61, 38, 0.7);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: white;
+}
+
+.hero {
+    margin: 30px;
+    margin-right: 350px;
+    margin-left: 350px;
+    margin-bottom: 60px;
+}
+
+.sercontainer {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.b1 {
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    background-color: white;
+    border-radius: 25px;
+    border-color: white;
+}
+
+.b1:hover {
+    color: #fff;
+    background-color: #62b778;
+    border-color: #62b778;
+}
+
+.phase3 {
+    display: grid;
+    margin: 120px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.fcontainer {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.29);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fcontainer h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.fcontainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the form elements */
+}
+
+.fcontainer label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+    align-self: flex-start; /* Align labels to the start (left) */
+}
+
+.fcontainer input[type="text"], 
+.fcontainer input[type="number"],
+.fcontainer select,
+.fcontainer textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fcontainer button[type="submit"] {
+    padding: 10px;
+    background-color: #146d29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 500px; /* Ensure button is aligned with the input fields */
+    width: 100%;
+}
+
+.fcontainer button[type="submit"]:hover {
+    background-color: #037e1e;
+}
+
+.how-it-works li {
+    margin-bottom: 20px;
+}
+
+.hcontainer {
+    margin-bottom: 60px;
+}
+
+.how-it-works {
+    margin-top: 120px;
+}
+
+.services {
+    margin-bottom: -70px;
+}
+    </style>
+    
+    <script>
+        function getQueryParams() {
+            const query = window.location.search.substring(1);
+            const params = {};
+            query.split('&').forEach(param => {
+                const [key, value] = param.split('=');
+                params[decodeURIComponent(key)] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        function displayFertilizerSchedule(crop, nitrogenDeficiency, phosphorusDeficiency, potassiumDeficiency) {
+            const schedules = {
+                coconut: [
+                    { day: 'Day 0', fertilizer: 'Dolomite / Agricultural Lime', nutrient: 'pH', percentage: 100 ,purchaseLink: 'https://www.amazon.com/LAY-PROFESSIONAL-NUTRIENTS-Dolomite-GRANULES/dp/B0CKJ4FW43/ref=sr_1_2?adgrpid=1346903108331247&dib=eyJ2IjoiMSJ9.UItSm5DFbaD1_4CiWAnh7i-L9yznCzwQQxqsM1FHZ5v969PriORtKpCVEKOdCRgWxjHljYVeseDypvAbJxpVLpkkYZ1_dnt4SDMWEbMKPhuodqL_1rWEXuCXya5P4govcFEFirUst7N3PoEc7cJ8DdVRI-z-ORZoOQRxZyioYRnRxNE8qMN_85zcTunBWH1kCXsof55jHxNgZ7IYPA-MWnyebWi96ixgYgA-ILBS9VbnK7w4mcWctDGt-xbF_FXF85WWSKCOX2xzFfL7m1RE-rOSbty1RY0lKFYhERtah9U.WsFepkBYEOjLTR8Z13imDgLhtw8_LWae22nOOQzL2Uk&dib_tag=se&hvadid=84181673561164&hvbmt=bp&hvdev=c&hvlocphy=116073&hvnetw=o&hvqmt=p&hvtargid=kwd-84182360672641%3Aloc-90&hydadcr=28665_14584306&keywords=lime+for+gardens&msclkid=a89d7796b26418c2130c11776bf4eff7&qid=1726077334&s=lawn-garden&sr=1-2'}, 
+                    { day: 'Day 0', fertilizer: 'Urea (46% N)', nutrient: 'nitrogen', percentage: 46 ,purchaseLink: 'https://www.amazon.com/Urea-Fertilizer-Nitrogen-Alliance-Chemical/dp/B09LFT6CCJ/ref=sr_1_3?crid=2HUC9TYLPTCOP&dib=eyJ2IjoiMSJ9.nBDHbZxfI_tj-qY3_Ak3HJI4-IjHIM-N_Gr1PPmdNt0RCvcSxbbga9RZdvKh_NGfXaYZbPQLIPaDOjWI8T_4aQspot5kdbZsUmsBl2MtBt0JNKdhBPOCqgv6Q2tvYUb4468B8x5X5-r0yUzQXaV98Ih7NtPWHy542mTm6osl6mUAH1dDtL1yRdQNVHYfUi0XGDOUwaA8DbCB5q_Zuk6vh_lR01hXHHwbY398B9sRRccuj1_FH73jl5ag1aVhO9XL0qSPOp4ETvmN-YZ5Q4Oju3tCHbMBysJWpiypuQ_lbps.LkxjnkaWM8A3JeL0pkoBEiEApPjSZAeHFLgQb5kdEFI&dib_tag=se&keywords=urea+fertilizer&qid=1726077441&sprefix=urea%2Caps%2C709&sr=8-3'},
+                    { day: 'Day 0', fertilizer: 'Single Super Phosphate (SSP, 7% P)', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.com/0-0-26-Foliar-Phosphite-Soluble-Fertilizer/dp/B07V4GL4X1/ref=sr_1_1?crid=25V346UH6EK6&dib=eyJ2IjoiMSJ9.2K0297q9RyZK1yB4IVwQ9JjOyxMqpijY8QWjNNxgRAg4c3TlIYprEoCY6O4iBcD1h68fq8OUbETM5DeihkfzoNmyWkpLrDWU2HmKNkX0bJ8.IWNb9Wickeud_HjAXWWsPC6cD2H_pws8zs9wh5UZHio&dib_tag=se&keywords=single%2Bsuper%2Bphosphate%2Bfertilizer&qid=1726077594&sprefix=single%2Bsuper%2Bphos%2Caps%2C631&sr=8-1&th=1'},
+                    { day: 'Day 0', fertilizer: 'Muriate of Potash (MOP, 50% K)', nutrient: 'potassium', percentage: 50 , purchaseLink: 'https://www.amazon.com/Pounds-Potassium-Sulfate-Potash/dp/B00L225EXI/ref=sr_1_1?crid=L3WGV8TN4T13&dib=eyJ2IjoiMSJ9.dagLXVvw1GC5kAIb0OyFw1sWm7WnYbVf5fr8zEZMEEdA6NfOYH5gpWIgoMj-YPx4iATIFIFm4QGJ4vsZI0MQYUvjsWmbSrHxnMVyC40Z7HqViM5zAVtwP2rrxH7gBKoEnshgVN8t4OKDlBi0qdLD3yJOLBebsjZOVOoGAxDv5YejKStrsXe6LnrG_HL17kYE9rozzgh8Kqk-K55vvchoczderZn_3rx3vFt0pcdDYxznAi0KT1qn4pRJCKhLI7H72ur_SdJVPSYjSOBcBA0YPAxnroj5S2-EeOSUOyZy44U.mmXXO8I3hUz5WxURmIwE1z8l6CokD21tbHKn0JiMoWY&dib_tag=se&keywords=muriate+of+potash&qid=1726077690&sprefix=muriate+of+potash%2Caps%2C726&sr=8-1'},
+                    { day: 'Day 30', fertilizer: 'Urea (46% N)', nutrient: 'nitrogen', percentage: 46 , purchaseLink: 'https://www.amazon.com/Urea-Fertilizer-Nitrogen-Alliance-Chemical/dp/B09LFT6CCJ/ref=sr_1_3?crid=2HUC9TYLPTCOP&dib=eyJ2IjoiMSJ9.nBDHbZxfI_tj-qY3_Ak3HJI4-IjHIM-N_Gr1PPmdNt0RCvcSxbbga9RZdvKh_NGfXaYZbPQLIPaDOjWI8T_4aQspot5kdbZsUmsBl2MtBt0JNKdhBPOCqgv6Q2tvYUb4468B8x5X5-r0yUzQXaV98Ih7NtPWHy542mTm6osl6mUAH1dDtL1yRdQNVHYfUi0XGDOUwaA8DbCB5q_Zuk6vh_lR01hXHHwbY398B9sRRccuj1_FH73jl5ag1aVhO9XL0qSPOp4ETvmN-YZ5Q4Oju3tCHbMBysJWpiypuQ_lbps.LkxjnkaWM8A3JeL0pkoBEiEApPjSZAeHFLgQb5kdEFI&dib_tag=se&keywords=urea+fertilizer&qid=1726077441&sprefix=urea%2Caps%2C709&sr=8-3'},
+                    { day: 'Day 30', fertilizer: 'Single Super Phosphate (SSP)', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.com/0-0-26-Foliar-Phosphite-Soluble-Fertilizer/dp/B07V4GL4X1/ref=sr_1_1?crid=25V346UH6EK6&dib=eyJ2IjoiMSJ9.2K0297q9RyZK1yB4IVwQ9JjOyxMqpijY8QWjNNxgRAg4c3TlIYprEoCY6O4iBcD1h68fq8OUbETM5DeihkfzoNmyWkpLrDWU2HmKNkX0bJ8.IWNb9Wickeud_HjAXWWsPC6cD2H_pws8zs9wh5UZHio&dib_tag=se&keywords=single%2Bsuper%2Bphosphate%2Bfertilizer&qid=1726077594&sprefix=single%2Bsuper%2Bphos%2Caps%2C631&sr=8-1&th=1' },
+                    { day: 'Day 30', fertilizer: 'Muriate of Potash (MOP)', nutrient: 'potassium', percentage: 50 , purchaseLink: 'https://www.amazon.com/Pounds-Potassium-Sulfate-Potash/dp/B00L225EXI/ref=sr_1_1?crid=L3WGV8TN4T13&dib=eyJ2IjoiMSJ9.dagLXVvw1GC5kAIb0OyFw1sWm7WnYbVf5fr8zEZMEEdA6NfOYH5gpWIgoMj-YPx4iATIFIFm4QGJ4vsZI0MQYUvjsWmbSrHxnMVyC40Z7HqViM5zAVtwP2rrxH7gBKoEnshgVN8t4OKDlBi0qdLD3yJOLBebsjZOVOoGAxDv5YejKStrsXe6LnrG_HL17kYE9rozzgh8Kqk-K55vvchoczderZn_3rx3vFt0pcdDYxznAi0KT1qn4pRJCKhLI7H72ur_SdJVPSYjSOBcBA0YPAxnroj5S2-EeOSUOyZy44U.mmXXO8I3hUz5WxURmIwE1z8l6CokD21tbHKn0JiMoWY&dib_tag=se&keywords=muriate+of+potash&qid=1726077690&sprefix=muriate+of+potash%2Caps%2C726&sr=8-1' },
+                    { day: 'Day 60', fertilizer: 'N-P-K 15-15-15', nutrient: 'balanced', percentage: 15 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-NPK-15-Fertilizer/dp/B0D2Y3YBQM/ref=sr_1_5?crid=1SZ0MGQMNZAGD&dib=eyJ2IjoiMSJ9.KgxGoCuqVsFQcnnPkmJDBEZpbLok2F5Yf30EjMbHxOrZLumKkDYGydYVtv14sxfnWGc7KTaKnYRfPPeosl7FImzNv92ySm1wxrZIDtaJ8BsQcAguBLDzo8C9Lw573DABCJRHl0nM0bMH6TTwTpo9cqJNEiLVw-P79t0_VlaVNE1Vs9Ctv_pgOaT0Z78wfrbGroLV3Q4nHUKEjoLOCPwOb1Rvo5UMEgbWBPyaI6BK1iY3Yp8RRXyr6C_Y9ftxFpNSMFr25Jkj8bB1qNJ1WVq0skotGQbROGYoveH7RKgj-uw.bmGaMREOBUaDyeviUGPec1L8c0fDauffVzIPEiFkM1w&dib_tag=se&keywords=npk%2B15%2B15%2B15%2Bfertilizer&qid=1726077922&sprefix=N%2BP%2BK%2B15%2B%2Caps%2C278&sr=8-5&th=1' },
+                    { day: 'Day 90', fertilizer: 'N-P-K 16-16-16', nutrient: 'balanced', percentage: 16 , purchaseLink: 'https://www.amazon.in/Rimi-Garden-NPK-16-Fertilizer/dp/B0D3B2CLSV/ref=sr_1_6?crid=F1FGEHPVR0KK&dib=eyJ2IjoiMSJ9.YJ1cVAHXpziKsXj8cu1fkZgBpIwNYgBnyVzC_N3DVpeNVX4pM4moQzmtkKzCowwKQa9bQKXtaSiP8j7QTpzMZLzHlujTtopLT4gSE8FKMb7f_cAmLGF4L-1WCS53yFOJr9x-UvBkTFRH53aIT5k6y1ivjYmB4t3MN0UYbBcaQxzUjrxRhPEDfY0RLWzd-c7lN_y1gbnd5sKi5Xlu-KaTiTH-JqTisVREtpxTppxDdWouRCV-ULnbKIqoZAuCLjVEGpSYsPsHXI8xfHtSXnff__slHUm7EdXbBNS7VmxokFo.jBnKeZ20JidYwO9rz1bEnwQymrxcn5zQWGoohkfIalc&dib_tag=se&keywords=npk%2B16%2B16%2B16%2Bfertilizer&qid=1726078003&sprefix=npk%2B16%2B16%2B16%2Bfertilizer%2Caps%2C381&sr=8-6&th=1'},
+                    { day: 'Day 120', fertilizer: 'N-P-K 18-18-18', nutrient: 'balanced', percentage: 18 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-Bio-Organic-Npk/dp/B09YCVTXZG/ref=sr_1_1_sspa?crid=15N7NT1NYVSIN&dib=eyJ2IjoiMSJ9.BWl5vUYKzdUtaSWl-FTF8sQvLnZ5tZJkEyVoplROLIkcLWDSRfxWW-l9VxZQLCSI63I3Lzel8XeegEpX48Ij-AzfEbg0eiO4WFU6okpU4SLELi-dNuYE43jsjAL-E_RYRknIzUWd29ZyCgLAE7oCNEN71dZJruQDcVvZJ6mLARaaIV0aUEIlaJsfWIO5Fmbv3Oxm1BuE21PWv3GkcWJtX5WDnNP3AtD_-LNUYmdFi3oRqwOcybWYj69r_nFhz_TJba4Kw4xdQb-JJtSpv63j8t4HKZ-9SH4VZIHkdJd3iVo.04jFxke8iHIHJeOfJ324Sov07ZOqX0zaAsx-rGt6jYE&dib_tag=se&keywords=npk%2B18%2B18%2B18%2Bfertilizer&qid=1726078073&sprefix=npk%2B18%2B18%2B18%2Bfertilizer%2Caps%2C290&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'}
+                ],
+                coffee: [
+                    { day: 'Day 0', fertilizer: 'Lime', nutrient: 'pH', percentage: 100 , purchaseLink: 'https://www.amazon.com/LAY-PROFESSIONAL-NUTRIENTS-Dolomite-GRANULES/dp/B0CKJ4FW43/ref=sr_1_2?adgrpid=1346903108331247&dib=eyJ2IjoiMSJ9.UItSm5DFbaD1_4CiWAnh7i-L9yznCzwQQxqsM1FHZ5v969PriORtKpCVEKOdCRgWxjHljYVeseDypvAbJxpVLpkkYZ1_dnt4SDMWEbMKPhuodqL_1rWEXuCXya5P4govcFEFirUst7N3PoEc7cJ8DdVRI-z-ORZoOQRxZyioYRnRxNE8qMN_85zcTunBWH1kCXsof55jHxNgZ7IYPA-MWnyebWi96ixgYgA-ILBS9VbnK7w4mcWctDGt-xbF_FXF85WWSKCOX2xzFfL7m1RE-rOSbty1RY0lKFYhERtah9U.WsFepkBYEOjLTR8Z13imDgLhtw8_LWae22nOOQzL2Uk&dib_tag=se&hvadid=84181673561164&hvbmt=bp&hvdev=c&hvlocphy=116073&hvnetw=o&hvqmt=p&hvtargid=kwd-84182360672641%3Aloc-90&hydadcr=28665_14584306&keywords=lime+for+gardens&msclkid=a89d7796b26418c2130c11776bf4eff7&qid=1726077334&s=lawn-garden&sr=1-2'},
+                    { day: 'Day 0', fertilizer: 'Urea', nutrient: 'nitrogen', percentage: 46 , purchaseLink: 'https://www.amazon.com/Urea-Fertilizer-Nitrogen-Alliance-Chemical/dp/B09LFT6CCJ/ref=sr_1_3?crid=2HUC9TYLPTCOP&dib=eyJ2IjoiMSJ9.nBDHbZxfI_tj-qY3_Ak3HJI4-IjHIM-N_Gr1PPmdNt0RCvcSxbbga9RZdvKh_NGfXaYZbPQLIPaDOjWI8T_4aQspot5kdbZsUmsBl2MtBt0JNKdhBPOCqgv6Q2tvYUb4468B8x5X5-r0yUzQXaV98Ih7NtPWHy542mTm6osl6mUAH1dDtL1yRdQNVHYfUi0XGDOUwaA8DbCB5q_Zuk6vh_lR01hXHHwbY398B9sRRccuj1_FH73jl5ag1aVhO9XL0qSPOp4ETvmN-YZ5Q4Oju3tCHbMBysJWpiypuQ_lbps.LkxjnkaWM8A3JeL0pkoBEiEApPjSZAeHFLgQb5kdEFI&dib_tag=se&keywords=urea+fertilizer&qid=1726077441&sprefix=urea%2Caps%2C709&sr=8-3' },
+                    { day: 'Day 15', fertilizer: 'Urea', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.in/PREPLE-Fertilizer-Soluble-Vegetables-Production/dp/B0DBDFQKVM/ref=sr_1_1_sspa?crid=1Y19Y99W4C6NK&dib=eyJ2IjoiMSJ9.3BbO_oUMiBacGQLeTV9CP-cLt4UsctdySbo7sc3SWYk5bue_lDnqpuQFpbndMTfi5kMJ-xIdZ6ksBAgkpSnH0-clF6q8qIlmLxIhu2QepPa8REZIcElGeqOI8PsrNWd90Hg3aPTM4a5bLLEeKlqRcsvMcWtQMq0mS-z9sJTvxgg-7CSAW3Oy9mGgCN_q9-3xvKsDtnce0Ii2GUyFfRTT2vlS6VW4T0Ws87P8IDzocvdqhSRyyGMPR5EV45TfFeZrajLf8_pEA1Zg47pY8dUKFdCbddQueaCw7obEnNrDAwY.jRnVFuc50FQxVtJ4Xr7b6ucis-vgbqtIsN3-Hi0F6dc&dib_tag=se&keywords=UREA%2B7%25%2BFERTILIZER&qid=1726078214&sprefix=urea%2B7%25%2Bfertilizer%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'},
+                    { day: 'Day 15', fertilizer: 'Muriate of Potash (MOP, 50% K)', nutrient: 'potassium', percentage: 50 , purchaseLink: 'https://www.amazon.com/Pounds-Potassium-Sulfate-Potash/dp/B00L225EXI/ref=sr_1_1?crid=L3WGV8TN4T13&dib=eyJ2IjoiMSJ9.dagLXVvw1GC5kAIb0OyFw1sWm7WnYbVf5fr8zEZMEEdA6NfOYH5gpWIgoMj-YPx4iATIFIFm4QGJ4vsZI0MQYUvjsWmbSrHxnMVyC40Z7HqViM5zAVtwP2rrxH7gBKoEnshgVN8t4OKDlBi0qdLD3yJOLBebsjZOVOoGAxDv5YejKStrsXe6LnrG_HL17kYE9rozzgh8Kqk-K55vvchoczderZn_3rx3vFt0pcdDYxznAi0KT1qn4pRJCKhLI7H72ur_SdJVPSYjSOBcBA0YPAxnroj5S2-EeOSUOyZy44U.mmXXO8I3hUz5WxURmIwE1z8l6CokD21tbHKn0JiMoWY&dib_tag=se&keywords=muriate+of+potash&qid=1726077690&sprefix=muriate+of+potash%2Caps%2C726&sr=8-1'},
+                    { day: 'Day 15', fertilizer: 'Single Super Phosphate (SSP)', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.com/0-0-26-Foliar-Phosphite-Soluble-Fertilizer/dp/B07V4GL4X1/ref=sr_1_1?crid=25V346UH6EK6&dib=eyJ2IjoiMSJ9.2K0297q9RyZK1yB4IVwQ9JjOyxMqpijY8QWjNNxgRAg4c3TlIYprEoCY6O4iBcD1h68fq8OUbETM5DeihkfzoNmyWkpLrDWU2HmKNkX0bJ8.IWNb9Wickeud_HjAXWWsPC6cD2H_pws8zs9wh5UZHio&dib_tag=se&keywords=single%2Bsuper%2Bphosphate%2Bfertilizer&qid=1726077594&sprefix=single%2Bsuper%2Bphos%2Caps%2C631&sr=8-1&th=1'},
+                    { day: 'Day 30', fertilizer: 'N-P-K 15-15-15', nutrient: 'balanced', percentage: 15 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-NPK-15-Fertilizer/dp/B0D2Y3YBQM/ref=sr_1_5?crid=1SZ0MGQMNZAGD&dib=eyJ2IjoiMSJ9.KgxGoCuqVsFQcnnPkmJDBEZpbLok2F5Yf30EjMbHxOrZLumKkDYGydYVtv14sxfnWGc7KTaKnYRfPPeosl7FImzNv92ySm1wxrZIDtaJ8BsQcAguBLDzo8C9Lw573DABCJRHl0nM0bMH6TTwTpo9cqJNEiLVw-P79t0_VlaVNE1Vs9Ctv_pgOaT0Z78wfrbGroLV3Q4nHUKEjoLOCPwOb1Rvo5UMEgbWBPyaI6BK1iY3Yp8RRXyr6C_Y9ftxFpNSMFr25Jkj8bB1qNJ1WVq0skotGQbROGYoveH7RKgj-uw.bmGaMREOBUaDyeviUGPec1L8c0fDauffVzIPEiFkM1w&dib_tag=se&keywords=npk%2B15%2B15%2B15%2Bfertilizer&qid=1726077922&sprefix=N%2BP%2BK%2B15%2B%2Caps%2C278&sr=8-5&th=1'},
+                    { day: 'Day 45', fertilizer: 'N-P-K 16-16-16', nutrient: 'balanced', percentage: 16 , purchaseLink: 'https://www.amazon.in/Rimi-Garden-NPK-16-Fertilizer/dp/B0D3B2CLSV/ref=sr_1_6?crid=F1FGEHPVR0KK&dib=eyJ2IjoiMSJ9.YJ1cVAHXpziKsXj8cu1fkZgBpIwNYgBnyVzC_N3DVpeNVX4pM4moQzmtkKzCowwKQa9bQKXtaSiP8j7QTpzMZLzHlujTtopLT4gSE8FKMb7f_cAmLGF4L-1WCS53yFOJr9x-UvBkTFRH53aIT5k6y1ivjYmB4t3MN0UYbBcaQxzUjrxRhPEDfY0RLWzd-c7lN_y1gbnd5sKi5Xlu-KaTiTH-JqTisVREtpxTppxDdWouRCV-ULnbKIqoZAuCLjVEGpSYsPsHXI8xfHtSXnff__slHUm7EdXbBNS7VmxokFo.jBnKeZ20JidYwO9rz1bEnwQymrxcn5zQWGoohkfIalc&dib_tag=se&keywords=npk%2B16%2B16%2B16%2Bfertilizer&qid=1726078003&sprefix=npk%2B16%2B16%2B16%2Bfertilizer%2Caps%2C381&sr=8-6&th=1'},
+                    { day: 'Day 60', fertilizer: 'N-P-K 18-18-18', nutrient: 'balanced', percentage: 18 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-Bio-Organic-Npk/dp/B09YCVTXZG/ref=sr_1_1_sspa?crid=15N7NT1NYVSIN&dib=eyJ2IjoiMSJ9.BWl5vUYKzdUtaSWl-FTF8sQvLnZ5tZJkEyVoplROLIkcLWDSRfxWW-l9VxZQLCSI63I3Lzel8XeegEpX48Ij-AzfEbg0eiO4WFU6okpU4SLELi-dNuYE43jsjAL-E_RYRknIzUWd29ZyCgLAE7oCNEN71dZJruQDcVvZJ6mLARaaIV0aUEIlaJsfWIO5Fmbv3Oxm1BuE21PWv3GkcWJtX5WDnNP3AtD_-LNUYmdFi3oRqwOcybWYj69r_nFhz_TJba4Kw4xdQb-JJtSpv63j8t4HKZ-9SH4VZIHkdJd3iVo.04jFxke8iHIHJeOfJ324Sov07ZOqX0zaAsx-rGt6jYE&dib_tag=se&keywords=npk%2B18%2B18%2B18%2Bfertilizer&qid=1726078073&sprefix=npk%2B18%2B18%2B18%2Bfertilizer%2Caps%2C290&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'}
+                ],
+                rice: [
+                    { day: 'Day 0', fertilizer: 'Dolomite / Agricultural Lime', nutrient: 'pH', percentage: 100 ,purchaseLink: 'https://www.amazon.com/LAY-PROFESSIONAL-NUTRIENTS-Dolomite-GRANULES/dp/B0CKJ4FW43/ref=sr_1_2?adgrpid=1346903108331247&dib=eyJ2IjoiMSJ9.UItSm5DFbaD1_4CiWAnh7i-L9yznCzwQQxqsM1FHZ5v969PriORtKpCVEKOdCRgWxjHljYVeseDypvAbJxpVLpkkYZ1_dnt4SDMWEbMKPhuodqL_1rWEXuCXya5P4govcFEFirUst7N3PoEc7cJ8DdVRI-z-ORZoOQRxZyioYRnRxNE8qMN_85zcTunBWH1kCXsof55jHxNgZ7IYPA-MWnyebWi96ixgYgA-ILBS9VbnK7w4mcWctDGt-xbF_FXF85WWSKCOX2xzFfL7m1RE-rOSbty1RY0lKFYhERtah9U.WsFepkBYEOjLTR8Z13imDgLhtw8_LWae22nOOQzL2Uk&dib_tag=se&hvadid=84181673561164&hvbmt=bp&hvdev=c&hvlocphy=116073&hvnetw=o&hvqmt=p&hvtargid=kwd-84182360672641%3Aloc-90&hydadcr=28665_14584306&keywords=lime+for+gardens&msclkid=a89d7796b26418c2130c11776bf4eff7&qid=1726077334&s=lawn-garden&sr=1-2'}, 
+                    { day: 'Day 0', fertilizer: 'Urea (46% N)', nutrient: 'nitrogen', percentage: 46 ,purchaseLink: 'https://www.amazon.com/Urea-Fertilizer-Nitrogen-Alliance-Chemical/dp/B09LFT6CCJ/ref=sr_1_3?crid=2HUC9TYLPTCOP&dib=eyJ2IjoiMSJ9.nBDHbZxfI_tj-qY3_Ak3HJI4-IjHIM-N_Gr1PPmdNt0RCvcSxbbga9RZdvKh_NGfXaYZbPQLIPaDOjWI8T_4aQspot5kdbZsUmsBl2MtBt0JNKdhBPOCqgv6Q2tvYUb4468B8x5X5-r0yUzQXaV98Ih7NtPWHy542mTm6osl6mUAH1dDtL1yRdQNVHYfUi0XGDOUwaA8DbCB5q_Zuk6vh_lR01hXHHwbY398B9sRRccuj1_FH73jl5ag1aVhO9XL0qSPOp4ETvmN-YZ5Q4Oju3tCHbMBysJWpiypuQ_lbps.LkxjnkaWM8A3JeL0pkoBEiEApPjSZAeHFLgQb5kdEFI&dib_tag=se&keywords=urea+fertilizer&qid=1726077441&sprefix=urea%2Caps%2C709&sr=8-3'},
+                    { day: 'Day 0', fertilizer: 'Single Super Phosphate (SSP, 7% P)', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.com/0-0-26-Foliar-Phosphite-Soluble-Fertilizer/dp/B07V4GL4X1/ref=sr_1_1?crid=25V346UH6EK6&dib=eyJ2IjoiMSJ9.2K0297q9RyZK1yB4IVwQ9JjOyxMqpijY8QWjNNxgRAg4c3TlIYprEoCY6O4iBcD1h68fq8OUbETM5DeihkfzoNmyWkpLrDWU2HmKNkX0bJ8.IWNb9Wickeud_HjAXWWsPC6cD2H_pws8zs9wh5UZHio&dib_tag=se&keywords=single%2Bsuper%2Bphosphate%2Bfertilizer&qid=1726077594&sprefix=single%2Bsuper%2Bphos%2Caps%2C631&sr=8-1&th=1'},
+                    { day: 'Day 0', fertilizer: 'Muriate of Potash (MOP, 50% K)', nutrient: 'potassium', percentage: 50 , purchaseLink: 'https://www.amazon.com/Pounds-Potassium-Sulfate-Potash/dp/B00L225EXI/ref=sr_1_1?crid=L3WGV8TN4T13&dib=eyJ2IjoiMSJ9.dagLXVvw1GC5kAIb0OyFw1sWm7WnYbVf5fr8zEZMEEdA6NfOYH5gpWIgoMj-YPx4iATIFIFm4QGJ4vsZI0MQYUvjsWmbSrHxnMVyC40Z7HqViM5zAVtwP2rrxH7gBKoEnshgVN8t4OKDlBi0qdLD3yJOLBebsjZOVOoGAxDv5YejKStrsXe6LnrG_HL17kYE9rozzgh8Kqk-K55vvchoczderZn_3rx3vFt0pcdDYxznAi0KT1qn4pRJCKhLI7H72ur_SdJVPSYjSOBcBA0YPAxnroj5S2-EeOSUOyZy44U.mmXXO8I3hUz5WxURmIwE1z8l6CokD21tbHKn0JiMoWY&dib_tag=se&keywords=muriate+of+potash&qid=1726077690&sprefix=muriate+of+potash%2Caps%2C726&sr=8-1'},
+                    { day: 'Day 30', fertilizer: 'Urea (46% N)', nutrient: 'nitrogen', percentage: 46 , purchaseLink: 'https://www.amazon.com/Urea-Fertilizer-Nitrogen-Alliance-Chemical/dp/B09LFT6CCJ/ref=sr_1_3?crid=2HUC9TYLPTCOP&dib=eyJ2IjoiMSJ9.nBDHbZxfI_tj-qY3_Ak3HJI4-IjHIM-N_Gr1PPmdNt0RCvcSxbbga9RZdvKh_NGfXaYZbPQLIPaDOjWI8T_4aQspot5kdbZsUmsBl2MtBt0JNKdhBPOCqgv6Q2tvYUb4468B8x5X5-r0yUzQXaV98Ih7NtPWHy542mTm6osl6mUAH1dDtL1yRdQNVHYfUi0XGDOUwaA8DbCB5q_Zuk6vh_lR01hXHHwbY398B9sRRccuj1_FH73jl5ag1aVhO9XL0qSPOp4ETvmN-YZ5Q4Oju3tCHbMBysJWpiypuQ_lbps.LkxjnkaWM8A3JeL0pkoBEiEApPjSZAeHFLgQb5kdEFI&dib_tag=se&keywords=urea+fertilizer&qid=1726077441&sprefix=urea%2Caps%2C709&sr=8-3'},
+                    { day: 'Day 30', fertilizer: 'Single Super Phosphate (SSP)', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.com/0-0-26-Foliar-Phosphite-Soluble-Fertilizer/dp/B07V4GL4X1/ref=sr_1_1?crid=25V346UH6EK6&dib=eyJ2IjoiMSJ9.2K0297q9RyZK1yB4IVwQ9JjOyxMqpijY8QWjNNxgRAg4c3TlIYprEoCY6O4iBcD1h68fq8OUbETM5DeihkfzoNmyWkpLrDWU2HmKNkX0bJ8.IWNb9Wickeud_HjAXWWsPC6cD2H_pws8zs9wh5UZHio&dib_tag=se&keywords=single%2Bsuper%2Bphosphate%2Bfertilizer&qid=1726077594&sprefix=single%2Bsuper%2Bphos%2Caps%2C631&sr=8-1&th=1' },
+                    { day: 'Day 30', fertilizer: 'Muriate of Potash (MOP)', nutrient: 'potassium', percentage: 50 , purchaseLink: 'https://www.amazon.com/Pounds-Potassium-Sulfate-Potash/dp/B00L225EXI/ref=sr_1_1?crid=L3WGV8TN4T13&dib=eyJ2IjoiMSJ9.dagLXVvw1GC5kAIb0OyFw1sWm7WnYbVf5fr8zEZMEEdA6NfOYH5gpWIgoMj-YPx4iATIFIFm4QGJ4vsZI0MQYUvjsWmbSrHxnMVyC40Z7HqViM5zAVtwP2rrxH7gBKoEnshgVN8t4OKDlBi0qdLD3yJOLBebsjZOVOoGAxDv5YejKStrsXe6LnrG_HL17kYE9rozzgh8Kqk-K55vvchoczderZn_3rx3vFt0pcdDYxznAi0KT1qn4pRJCKhLI7H72ur_SdJVPSYjSOBcBA0YPAxnroj5S2-EeOSUOyZy44U.mmXXO8I3hUz5WxURmIwE1z8l6CokD21tbHKn0JiMoWY&dib_tag=se&keywords=muriate+of+potash&qid=1726077690&sprefix=muriate+of+potash%2Caps%2C726&sr=8-1' },
+                    { day: 'Day 60', fertilizer: 'N-P-K 15-15-15', nutrient: 'balanced', percentage: 15 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-NPK-15-Fertilizer/dp/B0D2Y3YBQM/ref=sr_1_5?crid=1SZ0MGQMNZAGD&dib=eyJ2IjoiMSJ9.KgxGoCuqVsFQcnnPkmJDBEZpbLok2F5Yf30EjMbHxOrZLumKkDYGydYVtv14sxfnWGc7KTaKnYRfPPeosl7FImzNv92ySm1wxrZIDtaJ8BsQcAguBLDzo8C9Lw573DABCJRHl0nM0bMH6TTwTpo9cqJNEiLVw-P79t0_VlaVNE1Vs9Ctv_pgOaT0Z78wfrbGroLV3Q4nHUKEjoLOCPwOb1Rvo5UMEgbWBPyaI6BK1iY3Yp8RRXyr6C_Y9ftxFpNSMFr25Jkj8bB1qNJ1WVq0skotGQbROGYoveH7RKgj-uw.bmGaMREOBUaDyeviUGPec1L8c0fDauffVzIPEiFkM1w&dib_tag=se&keywords=npk%2B15%2B15%2B15%2Bfertilizer&qid=1726077922&sprefix=N%2BP%2BK%2B15%2B%2Caps%2C278&sr=8-5&th=1' },
+                    { day: 'Day 90', fertilizer: 'N-P-K 16-16-16', nutrient: 'balanced', percentage: 16 , purchaseLink: 'https://www.amazon.in/Rimi-Garden-NPK-16-Fertilizer/dp/B0D3B2CLSV/ref=sr_1_6?crid=F1FGEHPVR0KK&dib=eyJ2IjoiMSJ9.YJ1cVAHXpziKsXj8cu1fkZgBpIwNYgBnyVzC_N3DVpeNVX4pM4moQzmtkKzCowwKQa9bQKXtaSiP8j7QTpzMZLzHlujTtopLT4gSE8FKMb7f_cAmLGF4L-1WCS53yFOJr9x-UvBkTFRH53aIT5k6y1ivjYmB4t3MN0UYbBcaQxzUjrxRhPEDfY0RLWzd-c7lN_y1gbnd5sKi5Xlu-KaTiTH-JqTisVREtpxTppxDdWouRCV-ULnbKIqoZAuCLjVEGpSYsPsHXI8xfHtSXnff__slHUm7EdXbBNS7VmxokFo.jBnKeZ20JidYwO9rz1bEnwQymrxcn5zQWGoohkfIalc&dib_tag=se&keywords=npk%2B16%2B16%2B16%2Bfertilizer&qid=1726078003&sprefix=npk%2B16%2B16%2B16%2Bfertilizer%2Caps%2C381&sr=8-6&th=1'},
+                    { day: 'Day 120', fertilizer: 'N-P-K 18-18-18', nutrient: 'balanced', percentage: 18 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-Bio-Organic-Npk/dp/B09YCVTXZG/ref=sr_1_1_sspa?crid=15N7NT1NYVSIN&dib=eyJ2IjoiMSJ9.BWl5vUYKzdUtaSWl-FTF8sQvLnZ5tZJkEyVoplROLIkcLWDSRfxWW-l9VxZQLCSI63I3Lzel8XeegEpX48Ij-AzfEbg0eiO4WFU6okpU4SLELi-dNuYE43jsjAL-E_RYRknIzUWd29ZyCgLAE7oCNEN71dZJruQDcVvZJ6mLARaaIV0aUEIlaJsfWIO5Fmbv3Oxm1BuE21PWv3GkcWJtX5WDnNP3AtD_-LNUYmdFi3oRqwOcybWYj69r_nFhz_TJba4Kw4xdQb-JJtSpv63j8t4HKZ-9SH4VZIHkdJd3iVo.04jFxke8iHIHJeOfJ324Sov07ZOqX0zaAsx-rGt6jYE&dib_tag=se&keywords=npk%2B18%2B18%2B18%2Bfertilizer&qid=1726078073&sprefix=npk%2B18%2B18%2B18%2Bfertilizer%2Caps%2C290&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'}
+                ],
+                banana: [
+                    { day: 'Day 0', fertilizer: 'Lime', nutrient: 'pH', percentage: 100 , purchaseLink: 'https://www.amazon.com/LAY-PROFESSIONAL-NUTRIENTS-Dolomite-GRANULES/dp/B0CKJ4FW43/ref=sr_1_2?adgrpid=1346903108331247&dib=eyJ2IjoiMSJ9.UItSm5DFbaD1_4CiWAnh7i-L9yznCzwQQxqsM1FHZ5v969PriORtKpCVEKOdCRgWxjHljYVeseDypvAbJxpVLpkkYZ1_dnt4SDMWEbMKPhuodqL_1rWEXuCXya5P4govcFEFirUst7N3PoEc7cJ8DdVRI-z-ORZoOQRxZyioYRnRxNE8qMN_85zcTunBWH1kCXsof55jHxNgZ7IYPA-MWnyebWi96ixgYgA-ILBS9VbnK7w4mcWctDGt-xbF_FXF85WWSKCOX2xzFfL7m1RE-rOSbty1RY0lKFYhERtah9U.WsFepkBYEOjLTR8Z13imDgLhtw8_LWae22nOOQzL2Uk&dib_tag=se&hvadid=84181673561164&hvbmt=bp&hvdev=c&hvlocphy=116073&hvnetw=o&hvqmt=p&hvtargid=kwd-84182360672641%3Aloc-90&hydadcr=28665_14584306&keywords=lime+for+gardens&msclkid=a89d7796b26418c2130c11776bf4eff7&qid=1726077334&s=lawn-garden&sr=1-2'},
+                    { day: 'Day 0', fertilizer: 'Urea', nutrient: 'nitrogen', percentage: 46 , purchaseLink: 'https://www.amazon.com/Urea-Fertilizer-Nitrogen-Alliance-Chemical/dp/B09LFT6CCJ/ref=sr_1_3?crid=2HUC9TYLPTCOP&dib=eyJ2IjoiMSJ9.nBDHbZxfI_tj-qY3_Ak3HJI4-IjHIM-N_Gr1PPmdNt0RCvcSxbbga9RZdvKh_NGfXaYZbPQLIPaDOjWI8T_4aQspot5kdbZsUmsBl2MtBt0JNKdhBPOCqgv6Q2tvYUb4468B8x5X5-r0yUzQXaV98Ih7NtPWHy542mTm6osl6mUAH1dDtL1yRdQNVHYfUi0XGDOUwaA8DbCB5q_Zuk6vh_lR01hXHHwbY398B9sRRccuj1_FH73jl5ag1aVhO9XL0qSPOp4ETvmN-YZ5Q4Oju3tCHbMBysJWpiypuQ_lbps.LkxjnkaWM8A3JeL0pkoBEiEApPjSZAeHFLgQb5kdEFI&dib_tag=se&keywords=urea+fertilizer&qid=1726077441&sprefix=urea%2Caps%2C709&sr=8-3' },
+                    { day: 'Day 15', fertilizer: 'Urea', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.in/PREPLE-Fertilizer-Soluble-Vegetables-Production/dp/B0DBDFQKVM/ref=sr_1_1_sspa?crid=1Y19Y99W4C6NK&dib=eyJ2IjoiMSJ9.3BbO_oUMiBacGQLeTV9CP-cLt4UsctdySbo7sc3SWYk5bue_lDnqpuQFpbndMTfi5kMJ-xIdZ6ksBAgkpSnH0-clF6q8qIlmLxIhu2QepPa8REZIcElGeqOI8PsrNWd90Hg3aPTM4a5bLLEeKlqRcsvMcWtQMq0mS-z9sJTvxgg-7CSAW3Oy9mGgCN_q9-3xvKsDtnce0Ii2GUyFfRTT2vlS6VW4T0Ws87P8IDzocvdqhSRyyGMPR5EV45TfFeZrajLf8_pEA1Zg47pY8dUKFdCbddQueaCw7obEnNrDAwY.jRnVFuc50FQxVtJ4Xr7b6ucis-vgbqtIsN3-Hi0F6dc&dib_tag=se&keywords=UREA%2B7%25%2BFERTILIZER&qid=1726078214&sprefix=urea%2B7%25%2Bfertilizer%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'},
+                    { day: 'Day 15', fertilizer: 'Muriate of Potash (MOP, 50% K)', nutrient: 'potassium', percentage: 50 , purchaseLink: 'https://www.amazon.com/Pounds-Potassium-Sulfate-Potash/dp/B00L225EXI/ref=sr_1_1?crid=L3WGV8TN4T13&dib=eyJ2IjoiMSJ9.dagLXVvw1GC5kAIb0OyFw1sWm7WnYbVf5fr8zEZMEEdA6NfOYH5gpWIgoMj-YPx4iATIFIFm4QGJ4vsZI0MQYUvjsWmbSrHxnMVyC40Z7HqViM5zAVtwP2rrxH7gBKoEnshgVN8t4OKDlBi0qdLD3yJOLBebsjZOVOoGAxDv5YejKStrsXe6LnrG_HL17kYE9rozzgh8Kqk-K55vvchoczderZn_3rx3vFt0pcdDYxznAi0KT1qn4pRJCKhLI7H72ur_SdJVPSYjSOBcBA0YPAxnroj5S2-EeOSUOyZy44U.mmXXO8I3hUz5WxURmIwE1z8l6CokD21tbHKn0JiMoWY&dib_tag=se&keywords=muriate+of+potash&qid=1726077690&sprefix=muriate+of+potash%2Caps%2C726&sr=8-1'},
+                    { day: 'Day 15', fertilizer: 'Single Super Phosphate (SSP)', nutrient: 'phosphorus', percentage: 7 , purchaseLink: 'https://www.amazon.com/0-0-26-Foliar-Phosphite-Soluble-Fertilizer/dp/B07V4GL4X1/ref=sr_1_1?crid=25V346UH6EK6&dib=eyJ2IjoiMSJ9.2K0297q9RyZK1yB4IVwQ9JjOyxMqpijY8QWjNNxgRAg4c3TlIYprEoCY6O4iBcD1h68fq8OUbETM5DeihkfzoNmyWkpLrDWU2HmKNkX0bJ8.IWNb9Wickeud_HjAXWWsPC6cD2H_pws8zs9wh5UZHio&dib_tag=se&keywords=single%2Bsuper%2Bphosphate%2Bfertilizer&qid=1726077594&sprefix=single%2Bsuper%2Bphos%2Caps%2C631&sr=8-1&th=1'},
+                    { day: 'Day 30', fertilizer: 'N-P-K 15-15-15', nutrient: 'balanced', percentage: 15 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-NPK-15-Fertilizer/dp/B0D2Y3YBQM/ref=sr_1_5?crid=1SZ0MGQMNZAGD&dib=eyJ2IjoiMSJ9.KgxGoCuqVsFQcnnPkmJDBEZpbLok2F5Yf30EjMbHxOrZLumKkDYGydYVtv14sxfnWGc7KTaKnYRfPPeosl7FImzNv92ySm1wxrZIDtaJ8BsQcAguBLDzo8C9Lw573DABCJRHl0nM0bMH6TTwTpo9cqJNEiLVw-P79t0_VlaVNE1Vs9Ctv_pgOaT0Z78wfrbGroLV3Q4nHUKEjoLOCPwOb1Rvo5UMEgbWBPyaI6BK1iY3Yp8RRXyr6C_Y9ftxFpNSMFr25Jkj8bB1qNJ1WVq0skotGQbROGYoveH7RKgj-uw.bmGaMREOBUaDyeviUGPec1L8c0fDauffVzIPEiFkM1w&dib_tag=se&keywords=npk%2B15%2B15%2B15%2Bfertilizer&qid=1726077922&sprefix=N%2BP%2BK%2B15%2B%2Caps%2C278&sr=8-5&th=1'},
+                    { day: 'Day 45', fertilizer: 'N-P-K 16-16-16', nutrient: 'balanced', percentage: 16 , purchaseLink: 'https://www.amazon.in/Rimi-Garden-NPK-16-Fertilizer/dp/B0D3B2CLSV/ref=sr_1_6?crid=F1FGEHPVR0KK&dib=eyJ2IjoiMSJ9.YJ1cVAHXpziKsXj8cu1fkZgBpIwNYgBnyVzC_N3DVpeNVX4pM4moQzmtkKzCowwKQa9bQKXtaSiP8j7QTpzMZLzHlujTtopLT4gSE8FKMb7f_cAmLGF4L-1WCS53yFOJr9x-UvBkTFRH53aIT5k6y1ivjYmB4t3MN0UYbBcaQxzUjrxRhPEDfY0RLWzd-c7lN_y1gbnd5sKi5Xlu-KaTiTH-JqTisVREtpxTppxDdWouRCV-ULnbKIqoZAuCLjVEGpSYsPsHXI8xfHtSXnff__slHUm7EdXbBNS7VmxokFo.jBnKeZ20JidYwO9rz1bEnwQymrxcn5zQWGoohkfIalc&dib_tag=se&keywords=npk%2B16%2B16%2B16%2Bfertilizer&qid=1726078003&sprefix=npk%2B16%2B16%2B16%2Bfertilizer%2Caps%2C381&sr=8-6&th=1'},
+                    { day: 'Day 60', fertilizer: 'N-P-K 18-18-18', nutrient: 'balanced', percentage: 18 , purchaseLink: 'https://www.amazon.in/Sansar-Agro%C2%AE-Bio-Organic-Npk/dp/B09YCVTXZG/ref=sr_1_1_sspa?crid=15N7NT1NYVSIN&dib=eyJ2IjoiMSJ9.BWl5vUYKzdUtaSWl-FTF8sQvLnZ5tZJkEyVoplROLIkcLWDSRfxWW-l9VxZQLCSI63I3Lzel8XeegEpX48Ij-AzfEbg0eiO4WFU6okpU4SLELi-dNuYE43jsjAL-E_RYRknIzUWd29ZyCgLAE7oCNEN71dZJruQDcVvZJ6mLARaaIV0aUEIlaJsfWIO5Fmbv3Oxm1BuE21PWv3GkcWJtX5WDnNP3AtD_-LNUYmdFi3oRqwOcybWYj69r_nFhz_TJba4Kw4xdQb-JJtSpv63j8t4HKZ-9SH4VZIHkdJd3iVo.04jFxke8iHIHJeOfJ324Sov07ZOqX0zaAsx-rGt6jYE&dib_tag=se&keywords=npk%2B18%2B18%2B18%2Bfertilizer&qid=1726078073&sprefix=npk%2B18%2B18%2B18%2Bfertilizer%2Caps%2C290&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'}
+                ],
+                
+            };
+
+            const schedule = schedules[crop] || [];
+
+            let tableHTML = `
+                <table>
+                    <caption><h2>Fertilizer Schedule</h2></caption>
+                    <tr>
+                        <th>Day</th>
+                        <th>Fertilizer</th>
+                        <th>Amount (kg/ha)</th>
+                        <th>Nutrient Focus</th>
+                        <th>Purchase Link</th>
+                    </tr>`;
+
+            schedule.forEach(item => {
+                let amount;
+                if(item.nutrient == 'pH'){
+                    amount = 200;
+                }else if (item.nutrient === 'nitrogen') {
+                    amount = (nitrogenDeficiency / item.percentage) * 100;
+                } else if (item.nutrient === 'phosphorus') {
+                    amount = (phosphorusDeficiency / item.percentage) * 100;
+                } else if (item.nutrient === 'potassium') {
+                    amount = (potassiumDeficiency / item.percentage) * 100;
+                } else if (item.nutrient === 'balanced') {
+                    const averageDeficiency = (nitrogenDeficiency + phosphorusDeficiency + potassiumDeficiency) / 3;
+                    amount = (averageDeficiency / item.percentage) * 100;
+                } else {
+                    amount = 'N/A';
+                }
+
+                const displayAmount = typeof amount === 'number' && !isNaN(amount) ? amount.toFixed(2) : amount;
+
+                tableHTML += `
+                    <tr>
+                        <td>${item.day}</td>
+                        <td>${item.fertilizer}</td>
+                        <td>${displayAmount} kg/ha</td>
+                        <td>${item.nutrient.charAt(0).toUpperCase() + item.nutrient.slice(1)} Deficiency</td>
+                        <td><a href="${item.purchaseLink}" target="_blank">Buy Here</a></td>
+                    </tr>`;
+            });
+
+            tableHTML += "</table>";
+
+            document.getElementById('care-methods').innerHTML = tableHTML;
+        }
+
+        window.onload = function() {
+            const params = getQueryParams();
+            const crop = params.crop || 'N/A';
+            const nitrogen = parseFloat(params.nitrogen) || 0;
+            const phosphorus = parseFloat(params.phosphorus) || 0;
+            const potassium = parseFloat(params.potassium) || 0;
+            const ph = parseFloat(params.ph) || 'N/A';
+
+            document.getElementById('crop-type').innerText = crop;
+            document.getElementById('nitrogen-result').innerText = nitrogen;
+            document.getElementById('phosphorus-result').innerText = phosphorus;
+            document.getElementById('potassium-result').innerText = potassium;
+            document.getElementById('ph-result').innerText = ph;
+
+            if (crop.toLowerCase() === 'coffee') {
+                displayFertilizerSchedule('coffee', nitrogen, phosphorus, potassium);
+            } else if (crop.toLowerCase() === 'rice') {
+                displayFertilizerSchedule('rice', nitrogen, phosphorus, potassium);
+            } else if (crop.toLowerCase() === 'banana') {
+                displayFertilizerSchedule('banana', nitrogen, phosphorus, potassium);
+            } else if (crop.toLowerCase() === 'coconut') {
+                displayFertilizerSchedule('coconut', nitrogen, phosphorus, potassium);
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="home.html" class="logo">
+                <img src="images/logo.png" alt="Agr-e Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li class="dropdown">
+                        <a>Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="soil_testing.html">Soil Testing</a></li>
+                            <li><a href="nutrient_deficiency.html">Nutrient Deficiency</a></li>
+                            <li><a href="mixed_cropping.html">Mixed Cropping</a></li>
+                            <li><a href="insurances.html">Insurances and Subsidies</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="results"></section>
+        <div class="container">
+            <h2>Prediction Results</h2>
+            <p><strong>Crop Type:</strong> <span id="crop-type"></span></p>
+            <p><strong>Nitrogen Deficiency:</strong> <span id="nitrogen-result"></span></p>
+            <p><strong>Phosphorus Deficiency:</strong> <span id="phosphorus-result"></span></p>
+            <p><strong>Potassium Deficiency:</strong> <span id="potassium-result"></span></p>
+            <p><strong>pH Level:</strong> <span id="ph-result"></span></p>
+            <div id="care-methods"></div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Agr-e</h2>
+                <p>Agr-e integrates advanced technology with traditional farming practices, ensuring a sustainable and profitable future for farmers.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Information</h2>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact" id="contact">
+                <h2>Contact Us</h2>
+                <p>Email: support@agr-e.com</p>
+                <p>Phone: +123 456 789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agr-e. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance&Subsidies | Agr-e</title>
+   <link rel="stylesheet" href="styles/style4.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<style>
+    table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders between cells are merged */
+    margin: 20px 0; /* Adds some space above and below the table */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc; /* Thin border with a lighter color */
+    text-align: left; /* Aligns text to the left within cells */
+}
+
+thead {
+    background-color: rgba(4, 84, 4, 0.7); /* Dark green background for table header */
+    color: white; /* White text color for table header */
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+tfoot {
+    background-color: rgba(38, 61, 38, 0.7); /* Dark green background for table footer */
+    color: white; /* White text color for table footer */
+}
+
+tfoot td {
+    font-weight: bold; /* Bold text for footer cells */
+}
+
+table, th, td {
+    border: 1px solid #ccc; /* Thin border for table, th, and td */
+    table, th, td {
+    padding: 10px;
+    /*border: 1px solid rgb(0, 0, 0);*/
+    border-collapse: collapse;
+    background-color: rgba(142, 138, 138, 0.5);
+    color: rgb(0, 12, 2);
+}
+}
+.mcontainer {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically if needed */
+    text-align: center; /* Center text inside */
+    padding: 30px 10px;
+    background-color: rgba(38, 61, 38, 0.7);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 30px auto; /* Center container horizontally */
+    border-radius: 8px;
+    color: white;
+    width: 80%; /* Adjust this percentage as needed */
+    max-width: 1200px; /* Optional: set a maximum width */
+}
+
+.mcontainer .section {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.navi {
+    display: flex;
+    justify-content: center; /* Center navigation items */
+    width: 100%; /* Ensure navigation uses full width */
+    padding: 0;
+    margin: 20px 0; /* Adjust spacing as needed */
+}
+
+.navi ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Align list items in a row */
+}
+
+.navi ul li {
+    margin: 0 10px; /* Space between items */
+}
+
+.navi ul li a {
+    color: rgb(245, 245, 245);
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navi ul li a:hover {
+    color: rgb(1, 19, 1);
+}
+a {
+    color: rgb(2, 35, 2);
+    text-decoration: none;
+}
+.insurance h2,
+.subsidies h2 {
+    margin-bottom: 20px;
+    color: #fefefe; /* Adjust color as needed */
+}
+footer {
+    background-color: rgba(38, 61, 38, 0.7);
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #014601;
+    padding-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul li {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; /* Align the icon and text vertically */
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #cccccc;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #034b03;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
+</style>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="home.html" class="logo" aria-label="Agr-e Logo">
+                <img src="images/logo.png" alt="Agr-e Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html" aria-current="page">Home</a></li>
+                    <li class="dropdown">
+                        <a >Services</a>
+                        <ul class="dropdown-content">
+                            <li><a href="soil_testing.html">Soil Testing</a></li>
+                            <li><a href="nutrient_deficiency.html">Nutrient Deficiency</a></li>
+                            <li><a href="mixed_cropping.html">Mixed Cropping</a></li>
+                            <li><a href="insurances.html">Insurances and Subsidies</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="mcontainer">
+        <h2>Agricultural Insurance & Subsidies</h2>
+        <nav class="navi">
+            <ul>
+                <li><a href="#insurance">Insurance</a></li>
+                <li><a href="#subsidies">Subsidies</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="main">
+        <main class="container">
+            <section id="insurance" class="insurance">
+                <h2>Insurance Options</h2>
+                <p>Explore various insurance options available for agricultural purposes.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Insurance Type</th>
+                            <th>Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Crop Insurance (PMFBY)</td>
+                            <td>Protect your crops against natural disasters and market fluctuations.</td>
+                            <td><a href="https://pmfby.gov.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Livestock Insurance</td>
+                            <td>Ensure the health and safety of your livestock with comprehensive coverage.</td>
+                            <td><a href="https://www.insurance.gov.in/insure/insurance-schemes/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>PNB MetLife Farm Insurance</td>
+                            <td>Comprehensive insurance for farm assets and operations.</td>
+                            <td><a href="https://www.pnbmetlife.com/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Max Life Agriculture Insurance</td>
+                            <td>Protect your agricultural investments with customized insurance plans.</td>
+                            <td><a href="https://www.maxlifeinsurance.com/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Reliance General Farm Insurance</td>
+                            <td>Insurance for farm equipment and crop protection.</td>
+                            <td><a href="https://www.reliancegeneral.co.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>SBI General Insurance</td>
+                            <td>Various insurance options for agricultural needs and asset protection.</td>
+                            <td><a href="https://www.sbi.co.in/web/insurance" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>LIC Agricultural Insurance</td>
+                            <td>Insurance for crops, livestock, and other farm assets.</td>
+                            <td><a href="https://www.licindia.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>HDFC General Insurance</td>
+                            <td>Farm insurance policies including crop and livestock coverage.</td>
+                            <td><a href="https://www.hdfcinsurance.com/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>ICICI Lombard Agriculture Insurance</td>
+                            <td>Protection against agricultural risks and losses.</td>
+                            <td><a href="https://www.icicilombard.com/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Birla Sun Life Insurance</td>
+                            <td>Comprehensive insurance solutions for farmers and agricultural operations.</td>
+                            <td><a href="https://www.birlasunlife.com/" target="_blank">Visit Site</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="subsidies" class="subsidies">
+                <br><br>
+                <h2>Subsidies</h2>
+                <p>Find out about various subsidies available to support your agricultural activities.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subsidy Type</th>
+                            <th>Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fertilizer Subsidy (NABARD)</td>
+                            <td>Financial support for purchasing fertilizers to enhance crop yield.</td>
+                            <td><a href="https://www.nabard.org/content1.aspx?id=9&catid=6" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Equipment Subsidy</td>
+                            <td>Subsidies to help acquire essential agricultural equipment.</td>
+                            <td><a href="https://www.agricoop.gov.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Agricultural Equipment Subsidy Scheme</td>
+                            <td>Details on subsidies for agricultural machinery and equipment.</td>
+                            <td><a href="https://www.agricoop.gov.in/sites/default/files/Scheme_for_Providing_Subsidy_for_Agricultural_Equipment.pdf" target="_blank">Visit PDF</a></td>
+                        </tr>
+                        <tr>
+                            <td>Food Processing Subsidy</td>
+                            <td>Support for setting up food processing units and infrastructure.</td>
+                            <td><a href="https://www.mofpi.gov.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>MSME Subsidies for Agriculture</td>
+                            <td>Subsidies and support for micro, small, and medium enterprises in agriculture.</td>
+                            <td><a href="https://www.msme.gov.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>APEDA Export Subsidy</td>
+                            <td>Financial assistance for exporting agricultural products.</td>
+                            <td><a href="https://www.apeda.gov.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dairy Subsidy</td>
+                            <td>Subsidies and support for dairy farming and production.</td>
+                            <td><a href="https://www.nddb.coop/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>ICAR Research Subsidies</td>
+                            <td>Grants and subsidies for agricultural research and development.</td>
+                            <td><a href="https://www.icar.org.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                        <tr>
+                            <td>Agriculture Investment Subsidy</td>
+                            <td>Incentives and subsidies for investing in agricultural projects.</td>
+                            <td><a href="https://www.investindia.gov.in/" target="_blank">Visit Site</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Agr-e</h2>
+                <p style="text-align:justify;">Agr-e is dedicated to integrating advanced technology with traditional farming practices, ensuring a sustainable and profitable future for farmers.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Information</h2>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact" id="contact">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><img src="images/favicon1.ico" alt="Location Icon" class="contact-icon"> CHRIST (Deemed to be University) Bangalore Yeshwanthpur Campus, Nalagadderanahalli, Peenya, Bengaluru, Karnataka 560073</li>
+                    <li><img src="images/favicon2.ico" alt="Phone Icon" class="contact-icon"> +91 9188465623</li>
+                    <li><img src="images/favicon3.ico" alt="Email Icon" class="contact-icon"> <a href="mailto:agre@gmail.com">agre@christuniversity.in</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agr-e. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
